@@ -23,9 +23,9 @@ public abstract class BaseDelegate extends SwipeBackFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView;
+       final View rootView;
         if (setLayout() instanceof Integer) {
-            rootView = inflater.inflate((int) setLayout(), container, false);
+            rootView = inflater.inflate((int)setLayout(), container, false);
         } else if (setLayout() instanceof View) {
             rootView = (View) setLayout();
         } else {

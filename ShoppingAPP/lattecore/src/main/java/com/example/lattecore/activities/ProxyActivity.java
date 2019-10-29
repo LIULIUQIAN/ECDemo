@@ -10,25 +10,28 @@ import com.example.lattecore.R;
 import com.example.lattecore.delegates.LatteDelegate;
 
 import me.yokeyword.fragmentation.SupportActivity;
+import me.yokeyword.fragmentation.SupportActivityDelegate;
 
 public abstract class ProxyActivity extends SupportActivity {
+
+    private final SupportActivityDelegate DELEGATE = new SupportActivityDelegate(this);
 
     public abstract LatteDelegate setRootDelegate();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        DELEGATE.onCreate(savedInstanceState);
         initContainer(savedInstanceState);
     }
 
     private void initContainer(@Nullable Bundle savedInstanceState) {
 
         final ContentFrameLayout container = new ContentFrameLayout(this);
-        container.setId(R.id.coredelegate_container);
+        container.setId(R.id.delegate_container);
         setContentView(container);
-
-        if (savedInstanceState == null){
-            loadRootFragment(R.id.coredelegate_container,setRootDelegate());
+        if (savedInstanceState == null) {
+            DELEGATE.loadRootFragment(R.id.delegate_container, setRootDelegate());
         }
     }
 

@@ -1,20 +1,16 @@
 package com.example.shoppingapp;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.latte.ec.icon.FontEcModule;
-import com.example.lattecore.activities.ProxyActivity;
-import com.example.lattecore.app.ConfigKeys;
-import com.example.lattecore.app.Latte;
-import com.example.lattecore.delegates.LatteDelegate;
-import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
-public class MainActivity extends ProxyActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
-    public LatteDelegate setRootDelegate() {
-        return new ExampleFragment();
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
     }
 }

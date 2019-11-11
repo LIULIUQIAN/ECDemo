@@ -3,14 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.diabin.fastec.example.ExampleActivity">
+    android:layout_height="match_parent">
 
     <com.joanzapata.iconify.widget.IconTextView
         android:id="@+id/icon_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="qqq{fa-coffee}"
+        android:text="qqq"
         tools:ignore="HardcodedText" />
 
 </LinearLayout>

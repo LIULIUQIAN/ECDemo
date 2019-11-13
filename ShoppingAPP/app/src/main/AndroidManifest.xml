@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.shoppingapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:networkSecurityConfig="@xml/network_config"
         android:name=".application.ECApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"

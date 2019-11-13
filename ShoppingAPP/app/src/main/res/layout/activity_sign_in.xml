@@ -33,7 +33,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="手机号码"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:text="15021994943"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -47,7 +48,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="密码"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:text="123456"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

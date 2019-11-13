@@ -33,7 +33,6 @@ public class LauncherActivity extends AppCompatActivity implements ITimerListene
     private Timer mTime = null;
     private int mCount = 2;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,7 +92,7 @@ public class LauncherActivity extends AppCompatActivity implements ITimerListene
             startActivity(intent);
         }
 
-
+        finish();
 
     }
 }

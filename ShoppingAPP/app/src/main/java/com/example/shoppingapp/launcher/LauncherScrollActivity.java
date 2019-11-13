@@ -1,7 +1,9 @@
 package com.example.shoppingapp.launcher;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -9,6 +11,7 @@ import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.bigkoo.convenientbanner.holder.Holder;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
+import com.example.shoppingapp.MainActivity;
 import com.example.shoppingapp.R;
 
 import java.util.ArrayList;
@@ -27,6 +30,9 @@ public class LauncherScrollActivity extends AppCompatActivity implements OnItemC
 
     private void initView() {
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
+
         convenientBanner = findViewById(R.id.convenientBanner);
         localImages.add(R.mipmap.launcher_01);
         localImages.add(R.mipmap.launcher_02);
@@ -41,6 +47,10 @@ public class LauncherScrollActivity extends AppCompatActivity implements OnItemC
 
     @Override
     public void onItemClick(int position) {
-        System.out.println("==============" + position);
+        if (position == localImages.size() -1){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
     }
+
 }

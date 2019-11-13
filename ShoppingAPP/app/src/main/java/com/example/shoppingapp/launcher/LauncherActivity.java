@@ -13,6 +13,7 @@ import com.example.lattecore.util.timer.BaseTimerTask;
 import com.example.lattecore.util.timer.ITimerListener;
 import com.example.shoppingapp.MainActivity;
 import com.example.shoppingapp.R;
+import com.example.shoppingapp.sign.SignInActivity;
 
 
 import java.text.MessageFormat;
@@ -85,7 +86,10 @@ public class LauncherActivity extends AppCompatActivity implements ITimerListene
             startActivity(intent);
             LattePreference.setAppFlag(HAS_FIRST_LAUNCHER_APP,true);
         }else {
-            Intent intent = new Intent(this, MainActivity.class);
+//            Intent intent = new Intent(this, MainActivity.class);
+//            startActivity(intent);
+
+            Intent intent = new Intent(this, SignInActivity.class);
             startActivity(intent);
         }
 

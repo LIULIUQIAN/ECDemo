@@ -65,6 +65,8 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.0.0+'
     //JSON依赖Android版
     implementation 'com.alibaba:fastjson:1.1.71.android'
+    //json解析
+    implementation 'com.google.code.gson:gson:2.8.5'
     //数据库依赖
     implementation 'org.greenrobot:greendao:3.2.2'
 

@@ -13,8 +13,12 @@ import com.bigkoo.convenientbanner.holder.Holder;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import com.example.shoppingapp.MainActivity;
 import com.example.shoppingapp.R;
+import com.example.shoppingapp.database.DatabaseManager;
+import com.example.shoppingapp.database.UserProfile;
+import com.example.shoppingapp.sign.SignInActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LauncherScrollActivity extends AppCompatActivity implements OnItemClickListener {
 
@@ -48,8 +52,17 @@ public class LauncherScrollActivity extends AppCompatActivity implements OnItemC
     @Override
     public void onItemClick(int position) {
         if (position == localImages.size() -1){
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+
+            List<UserProfile> profiles = DatabaseManager.getInstance().getDao().queryBuilder().list();
+            if (profiles.size() > 0){
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+            }else {
+                Intent intent = new Intent(this, SignInActivity.class);
+                startActivity(intent);
+            }
+
+            finish();
         }
     }
 

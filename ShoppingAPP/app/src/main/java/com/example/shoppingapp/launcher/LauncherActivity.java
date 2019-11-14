@@ -13,10 +13,13 @@ import com.example.lattecore.util.timer.BaseTimerTask;
 import com.example.lattecore.util.timer.ITimerListener;
 import com.example.shoppingapp.MainActivity;
 import com.example.shoppingapp.R;
+import com.example.shoppingapp.database.DatabaseManager;
+import com.example.shoppingapp.database.UserProfile;
 import com.example.shoppingapp.sign.SignInActivity;
 
 
 import java.text.MessageFormat;
+import java.util.List;
 import java.util.Timer;
 
 import butterknife.BindView;
@@ -85,11 +88,16 @@ public class LauncherActivity extends AppCompatActivity implements ITimerListene
             startActivity(intent);
             LattePreference.setAppFlag(HAS_FIRST_LAUNCHER_APP,true);
         }else {
-//            Intent intent = new Intent(this, MainActivity.class);
-//            startActivity(intent);
 
-            Intent intent = new Intent(this, SignInActivity.class);
+           List<UserProfile> profiles = DatabaseManager.getInstance().getDao().queryBuilder().list();
+           if (profiles.size() > 0){
+               Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
+           }else {
+               Intent intent = new Intent(this, SignInActivity.class);
+               startActivity(intent);
+           }
+
         }
 
         finish();
